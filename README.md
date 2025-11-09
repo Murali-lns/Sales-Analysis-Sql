@@ -20,13 +20,13 @@ In this project, I used SQL to analyze sales data and discover key business insi
 
 4. **Key Questions Answered**
    - **Best Category on Sales**  
-     ![Best Category on Sales](images/Best%20Category%20on%20sales.png)
+     ![Best Category on Sales](Images/Best%20Category%20on%20sales.png)
    - **Best Year on Sales**  
-     ![Best Year On Sales](images/Best%20Year%20On%20sales.png)
+     ![Best Year On Sales](Images/Best%20Year%20On%20sales.png)
    - **Sales Standard Deviation (Stddev)**  
-     ![Stddev](images/Stddev.png)
+     ![Stddev](Images/Stddev.png)
    - **Top 10 Customers by Sales**  
-     ![Top 10 Customer](images/Top%2010%20Customer.png)
+     ![Top 10 Customer](Images/Top%2010%20Customer.png)
 
 5. **Results & Insights**
    - Found which category had the highest overall sales.
