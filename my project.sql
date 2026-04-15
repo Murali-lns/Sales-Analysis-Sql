@@ -151,7 +151,7 @@ from train_1
 group by Year
 order by order_count desc;
 
--- 2017 had most orders comparted to rest 3 years
+
 
 
 select `Customer Name`, sum(`Sales`) as total_sales
