@@ -165,3 +165,39 @@ limit 10;
 select min(`Sales`),max(`Sales`),avg(`Sales`),stddev(`Sales`)
 from train_1;
 -- sales are varying by so much
+
+
+
+WITH customer_revenue AS (
+    SELECT `Customer Name`,
+           SUM(`Sales`) AS total_sales
+    FROM train_1
+    GROUP BY `Customer Name`
+)
+SELECT `Customer Name`,
+       total_sales,
+       RANK() OVER (ORDER BY total_sales DESC) AS customer_rank
+FROM customer_revenue
+LIMIT 10;
+
+
+WITH yearly_sales AS (
+    SELECT YEAR(`Order Date`) AS yr,
+           SUM(`Sales`) AS total_sales
+    FROM train_1
+    GROUP BY YEAR(`Order Date`)
+)
+SELECT yr,
+       total_sales,
+       LAG(total_sales) OVER (ORDER BY yr) AS prev_year_sales,
+       ROUND((total_sales - LAG(total_sales) OVER (ORDER BY yr)) /
+             LAG(total_sales) OVER (ORDER BY yr) * 100, 2) AS yoy_growth
+FROM yearly_sales;
+
+SELECT `Category`,
+       AVG(`Sales`) AS mean_sales,
+       STDDEV(`Sales`) AS stddev_sales,
+       ROUND(STDDEV(`Sales`) / AVG(`Sales`) * 100, 2) AS coefficient_variation
+FROM train_1
+GROUP BY `Category`
+ORDER BY coefficient_variation DESC;
